@@ -4,10 +4,14 @@ import PropTypes from 'prop-types';
 
 const App = (props) => {
   const {gameTime, errorCount} = props;
+  const onClick = ()=>{
+
+  };
 
   return <WelcomeScreen
     gameTime={gameTime}
     errorCount={errorCount}
+    onClick={onClick()}
   />;
 };
 
