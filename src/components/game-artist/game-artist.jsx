@@ -30,7 +30,7 @@ const GameArtist = (props) => {
       </div>
 
       <div className="game__mistakes">
-        {errorArray.map((index) => {
+        {errorArray.map((it, index) => {
           return (<div className="wrong" key={index}></div>);
         })}
       </div>
