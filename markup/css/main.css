@@ -358,33 +358,6 @@ th {
 /*
  * Каркас сайта
  */
-@font-face {
-  font-family: "Fira Sans";
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-  src: url("../fonts/FiraSans-Light.woff2") format("woff2"), url("../fonts/FiraSans-Light.woff") format("woff"); }
-
-@font-face {
-  font-family: "Fira Sans";
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-  src: url("../fonts/FiraSans-LightItalic.woff2") format("woff2"), url("../fonts/FiraSans-LightItalic.woff") format("woff"); }
-
-@font-face {
-  font-family: "Fira Sans";
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-  src: url("../fonts/FiraSans-Medium.woff2") format("woff2"), url("../fonts/FiraSans-Medium.woff") format("woff"); }
-
-@font-face {
-  font-family: "Fira Sans";
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-  src: url("../fonts/FiraSans-MediumItalic.woff2") format("woff2"), url("../fonts/FiraSans-MediumItalic.woff") format("woff"); }
 
 *,
 *::before,
@@ -624,7 +597,7 @@ img {
 .game__mistakes {
   display: flex;
   justify-content: flex-end;
-  width: 260px; }
+  width: 520px; }
 
 .game__screen {
   position: relative;
@@ -642,6 +615,7 @@ img {
   margin-bottom: 30px; }
 
 .game__answer {
+  margin-left: 15px;
   width: 35px;
   height: 49px; }
 
@@ -669,17 +643,8 @@ img {
   font-size: 24px; }
 
 .game__track {
-  margin-bottom: 120px;
   width: 100%;
-  height: 55px;
-  text-align: left;
-  background-image: url("../img/player-background.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  -webkit-animation: fadein 1000ms ease-out;
-          animation: fadein 1000ms ease-out;
-  -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1; }
+  display: flex; }
 
 @-webkit-keyframes fadein {
   0% {
@@ -695,7 +660,8 @@ img {
 
 .game__artist {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  margin-top: 120px; }
 
 /*
  * Стили для игрового таймера
@@ -772,7 +738,10 @@ img {
  */
 .track {
   display: flex;
-  justify-content: space-between;
+  width: 100%;
+  justify-content: space-between; }
+
+.game__tracks .track {
   margin-bottom: 20px; }
 
 .track__button {
@@ -788,8 +757,8 @@ img {
     background-position: -5px -294px; }
 
 .track__status {
-  width: 330px;
   height: 55px;
+  flex-grow: 1;
   background-image: url("../img/player-background.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -917,12 +886,12 @@ img {
   color: #230d1a;
   text-align: center;
   font-size: 20px;
-  margin-top: 100px;
+  margin-top: 30px;
   width: 500px; }
 
 .login__form {
   width: 450px;
-  margin-top: 20px;
+  margin-top: 1500px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center; }

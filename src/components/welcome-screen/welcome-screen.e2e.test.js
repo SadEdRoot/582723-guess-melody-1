@@ -10,7 +10,7 @@ it(`Press on button`, () => {
   const app = shallow(<WelcomeScreen
     gameTime={0}
     errorCount={0}
-    onClick={clickHandler}
+    onStartButtonClick={clickHandler}
   />);
 
   const startButton = app.find(`.welcome__button`);
