@@ -1,15 +1,73 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import WelcomeScreen from '../welcome-screen/welcome-screen.jsx';
+import GamesArtist from '../game-artist/game-artist.jsx';
+import GameGenre from '../game-genre/game-genre.jsx';
 import PropTypes from 'prop-types';
+import questions from '../../mocks/questions.js';
 
-const App = (props) => {
-  const {gameTime, errorCount} = props;
+class App extends PureComponent {
+  constructor(props) {
+    super(props);
 
-  return <WelcomeScreen
-    time={gameTime}
-    errorCount={errorCount}
-  />;
-};
+    this.state = {
+      question: -1,
+    };
+  }
+
+  render() {
+    return this._getScreen(this.state.question);
+  }
+
+  _getScreen(question) {
+    if (question === -1) {
+      return this._getWelcomeScreen();
+    } else if (question >= questions.length) {
+      return this._getWelcomeScreen();
+    } else {
+      return questions[question].type === `genre` ? this._getGameGenreScreen(questions[question]) : this._getGameArtistScreen(questions[question]);
+    }
+  }
+
+  _getWelcomeScreen() {
+    const {gameTime, errorCount} = this.props;
+    return <WelcomeScreen
+      gameTime={gameTime}
+      errorCount={errorCount}
+      onStartButtonClick={() => {
+        this.setState({question: 0});
+      }}
+    />;
+  }
+
+  _getGameGenreScreen(question) {
+    const {gameTime, errorCount} = this.props;
+    return <GameGenre
+      gameTime={gameTime}
+      errorCount={errorCount}
+      question={question}
+      onSubmit={()=>{
+        this.setState((state) => {
+          return {question: state.question + 1};
+        });
+      }}
+    />;
+  }
+
+  _getGameArtistScreen(question) {
+    const {gameTime, errorCount} = this.props;
+    return <GamesArtist
+      gameTime={gameTime}
+      errorCount={errorCount}
+      question={question}
+      onSubmit={()=>{
+        this.setState((state) => {
+          return {question: state.question + 1};
+        });
+      }}
+    />;
+  }
+
+}
 
 App.propTypes = {
   gameTime: PropTypes.number,
